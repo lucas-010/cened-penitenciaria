@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cened-penitenciaria/static/css/main.5fc83979.css",
+    "main.js": "/cened-penitenciaria/static/js/main.559eabe7.js",
+    "static/media/imageBrasil.png": "/cened-penitenciaria/static/media/imageBrasil.c1fab22b8e783f3eeaf1.png",
+    "static/media/wavesBlue.png": "/cened-penitenciaria/static/media/wavesBlue.a60aeb852e874ccce7e5.png",
+    "static/media/logoCened.png": "/cened-penitenciaria/static/media/logoCened.c76152731a598cd56fb5.png",
+    "index.html": "/cened-penitenciaria/index.html",
+    "main.5fc83979.css.map": "/cened-penitenciaria/static/css/main.5fc83979.css.map",
+    "main.559eabe7.js.map": "/cened-penitenciaria/static/js/main.559eabe7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fc83979.css",
+    "static/js/main.559eabe7.js"
+  ]
+}
