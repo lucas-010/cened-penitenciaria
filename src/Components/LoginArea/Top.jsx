@@ -9,7 +9,7 @@ export default function Top() {
           <div className='flex flex-col lg:flex-row md:flex-row justify-center items-center'>
           <img className='w-44' src={imageBrasil} alt="" />
           <div className='ml-5 text-center lg:text-left md:text-left'>
-          <h2 className='text-2xl font-bold text-[#3572eb]'>Programa de Qualificação Profissional ás Pessoas Privadas de Liberdade</h2>
+          <h2 className='text-2xl font-bold text-[#3572eb]'>Programa de Qualificação Profissional às Pessoas Privadas de Liberdade</h2>
           <p className='text-lg font-semibold text-[#315DAD]'>Legislação aplicada: <i>Art. 126 da Lei de Execução Penal e Resolução nº 391/2021-CNJ</i></p>
           </div>
           <div className='mt-10 lg:mt-0 lg:ml-20 text-[#315DAD] text-lg font-semibold'>
