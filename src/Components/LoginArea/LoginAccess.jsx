@@ -13,7 +13,7 @@ export default function LoginAccess() {
                 <label htmlFor="user-password" className='text-xl font-bold text-white'>Senha</label> <br />
                 <input placeholder='Senha' id='user-password' type="password" className='p-2 outline-none border-4 lg:w-96 md:w-80 w-11/12 rounded-lg border-green-500'/>
             </div>
-            <button className='text-xl mt-5 md:ml-10 lg:ml-10 text-white p-1 border-4 px-4 rounded-lg hover:bg-green-500 transition-colors font-medium border-green-500'>Acessar</button>
+            <button className='text-xl mt-5 md:ml-10 lg:ml-10 text-white border-4 px-4 rounded-lg hover:bg-green-500 transition-colors font-medium border-green-500'>Acessar</button>
         </form>
     </div>
   )
