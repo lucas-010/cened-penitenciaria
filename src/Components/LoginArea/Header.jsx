@@ -9,8 +9,8 @@ export default function Header() {
         <img src={logoCened} className='h-20' alt="" />
       </div>
 
-      <div className='lg:block md:block hidden'>
-        <span className='text-lg font-bold text-white'>Acesso restrito às Penitenciárias e aos Perceiros</span>
+      <div className='lg:block md:block hidden mt-5 mr-2'>
+        <span className='text-lg font-bold text-white'>Acesso restrito às Penitenciárias Conveniadas!</span>
       </div>
     </div>
   )

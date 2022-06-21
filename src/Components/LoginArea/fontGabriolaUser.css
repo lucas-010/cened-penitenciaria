@@ -1,0 +1,17 @@
+@font-face {
+    font-family: Gabriola;
+    src: url('../../fonts/Gabriola.ttf');
+}
+
+@font-face {
+    font-family: narrow;
+    src: url('../../fonts/Arial\ Narrow.ttf');
+}
+
+.font-gabriola{
+  font-family: Gabriola;
+}
+
+.font-narrow{
+    font-family: narrow;
+}
