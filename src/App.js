@@ -3,7 +3,7 @@ import LoginHome from './Components/LoginArea/LoginHome';
 
 function App() {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
         <Routes>
           <Route path='/' element={<LoginHome/>}/>
         </Routes>
