@@ -1,10 +1,9 @@
 import React from 'react'
-import imageBrasil from '../../Images/imageBrasil.png'
 import brasilFlag from '../../Images/brasilFlag.jpg'
 
 export default function Top() {
   return (
-    <div className='bg-gray-200 border-t-2 border-black p-12'>
+    <div className='bg-gray-200 border-t-2 border-black p-14'>
        <div className='flex flex-col lg:flex-row md:flex-row justify-center items-center'>
           <div className='flex flex-col lg:flex-row md:flex-row justify-center items-center'>
           <img className='w-32' src={brasilFlag} alt="" />
