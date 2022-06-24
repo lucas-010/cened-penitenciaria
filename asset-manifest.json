@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/cened-penitenciaria/static/css/main.f45e8098.css",
-    "main.js": "/cened-penitenciaria/static/js/main.e1d8e679.js",
+    "main.css": "/cened-penitenciaria/static/css/main.2a198aaa.css",
+    "main.js": "/cened-penitenciaria/static/js/main.143e4dee.js",
     "static/media/Gabriola.ttf": "/cened-penitenciaria/static/media/Gabriola.88ea98efc0d476a13db1.ttf",
     "static/media/ponteJk.jpg": "/cened-penitenciaria/static/media/ponteJk.5ec80884794bb22a687a.jpg",
     "static/media/wavesBlue.png": "/cened-penitenciaria/static/media/wavesBlue.a60aeb852e874ccce7e5.png",
@@ -9,11 +9,11 @@
     "static/media/Arial Narrow.ttf": "/cened-penitenciaria/static/media/Arial Narrow.91b387325f5c25548c4e.ttf",
     "static/media/brasilFlag.jpg": "/cened-penitenciaria/static/media/brasilFlag.54251ad6dc86ef62d8d0.jpg",
     "index.html": "/cened-penitenciaria/index.html",
-    "main.f45e8098.css.map": "/cened-penitenciaria/static/css/main.f45e8098.css.map",
-    "main.e1d8e679.js.map": "/cened-penitenciaria/static/js/main.e1d8e679.js.map"
+    "main.2a198aaa.css.map": "/cened-penitenciaria/static/css/main.2a198aaa.css.map",
+    "main.143e4dee.js.map": "/cened-penitenciaria/static/js/main.143e4dee.js.map"
   },
   "entrypoints": [
-    "static/css/main.f45e8098.css",
-    "static/js/main.e1d8e679.js"
+    "static/css/main.2a198aaa.css",
+    "static/js/main.143e4dee.js"
   ]
 }
