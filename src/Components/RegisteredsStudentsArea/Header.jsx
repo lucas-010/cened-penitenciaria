@@ -2,7 +2,7 @@ import React from 'react'
 import {ImBook} from 'react-icons/im'
 import {FaUser} from 'react-icons/fa'
 import {AiOutlinePoweroff} from 'react-icons/ai'
-import wavesBlue from '../../Images/wavesBlue.png'
+import wavesBlue from '../../Images/1.jpg'
 
 export default function Header() {
   return (

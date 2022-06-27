@@ -9,7 +9,7 @@ export default function Top() {
             <h1 className='text-4xl font-bold text-[#6e7879]'>Cadastro de Alunos</h1>
         </div>
 
-        <div className='p-6 text-white flex flex-col items-center text-sm lg:flex-row font-bold'>
+        <div className='p-6 lg:ml-20 text-white flex flex-col items-center text-sm lg:flex-row font-bold'>
             <button className='p-4 mr-0 lg:mr-10 rounded-lg hover:bg-blue-400 w-3/4 lg:w-44 md:w-60 transition-colors bg-blue-600'>Alunos Cadastrados</button>
             <button className='p-4 mr-0 lg:mr-10 rounded-lg hover:bg-blue-600 mt-10 lg:mt-0 bg-blue-400 transition-colors'>Relatório de Alunos e Cursos por Situação</button>
         </div>

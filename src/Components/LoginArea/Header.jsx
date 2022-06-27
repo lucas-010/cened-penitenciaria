@@ -1,5 +1,5 @@
 import React from 'react'
-import wavesBlue from '../../Images/wavesBlue.png'
+import wavesBlue from '../../Images/1.jpg'
 import logoCened from '../../Images/logoCened.png'
 import { Link } from 'react-router-dom'
 
