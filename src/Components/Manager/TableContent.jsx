@@ -3,7 +3,9 @@ import Paper from '@mui/material/Paper';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import { Grid } from '@mui/material';
+import axios from 'axios';
 
+const api = process.env.REACT_APP_API_KEY
 const columns = [
     {
       id: 'datam',
@@ -11,7 +13,7 @@ const columns = [
       minWidth: 80
     },
     { 
-      id: 'student', 
+      id: 'name', 
       label: 'Estudante', 
       minWidth: 170 
     },
@@ -42,52 +44,11 @@ const columns = [
     },
   ];
 
-export default function TableContent() {
-    const [rows, setRows] = useState([
-        {
-            datam: '12/12/2012',
-            student: 'CURTIS ALAN LISBOA GARCÊS | CPF: 22059741220 | INFOPEN: 9999999	',
-            course: 'Inglês Anvaçado',
-            init: '12/12/2012',
-            end: '22/22/2022',
-            situation: 'Aprovado'
-        },
-        {
-          datam: '12/12/2012',
-          student: 'CURTIS ALAN LISBOA GARCÊS | CPF: 22059741220 | INFOPEN: 9999999	',
-          course: 'Inglês Anvaçado',
-          init: '12/12/2012',
-          end: '22/22/2022',
-          situation: 'Em Andamento'
-      },
-        {
-          datam: '12/12/2012',
-          student: 'CURTIS ALAN LISBOA GARCÊS | CPF: 22059741220 | INFOPEN: 9999999	',
-          course: 'Inglês Anvaçado',
-          init: '12/12/2012',
-          end: '22/22/2022',
-          situation: 'Aprovado'
-      },
-      {
-        datam: '12/12/2012',
-        student: 'CURTIS ALAN LISBOA GARCÊS | CPF: 22059741220 | INFOPEN: 9999999	',
-        course: 'Inglês Anvaçado',
-        init: '12/12/2012',
-        end: '22/22/2022',
-        situation: 'Em Andamento'
-    },
-    {
-      datam: '12/12/2012',
-      student: 'CURTIS ALAN LISBOA GARCÊS | CPF: 22059741220 | INFOPEN: 9999999',
-      course: 'Inglês Anvaçado',
-      init: '12/12/2012',
-      end: '22/22/2022',
-      situation: 'Aprovado'
-  },])
+export default function TableContent({searchValueChange}) {
+    const [rows, setRows] = useState([])
+    const [idPeni, setIdPeni] = useState(45)
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-    const [students, setStudents] = useState([])
-    const [searchValue, setSearchValue] = useState('')
     const handleChangePage = (event, newPage) => {
       setPage(newPage);
     };
@@ -95,7 +56,27 @@ export default function TableContent() {
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
-  
+    const formatStudentsAddRow = (students = [])=>{
+      let rowsProvisory = []
+      students.forEach(student=>{
+        rowsProvisory.push({
+          id: student.aluno.id,
+          datam: student.dataMatricula ? new Date(student.dataMatricula).toLocaleDateString('pt-br') : 'N/D',
+          name: `${student.aluno.nome} | ${student.aluno.cpf}`,
+          course: `${student.curso.codigo} | ${student.curso.nome}`,
+          init: student.inicioCurso ? new Date(student.inicioCurso).toLocaleDateString('pt-br') : 'N/D',
+          end: student.terminoCurso ? new Date(student.terminoCurso).toLocaleDateString('pt-br') : 'N/D',
+          situation: student.statusCursoDescricao,
+        })
+      })
+      setRows(rowsProvisory)
+    }
+  useEffect(()=>{
+    setPage(0)
+    axios.get(`${api}/documentos/consultas/matriculas?IdPenitenciaria=${idPeni}&Search=${searchValueChange}&limit=500`).then(response=>{
+      formatStudentsAddRow(response.data)
+    })
+  }, [searchValueChange])
   return (
     <Grid>
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -164,7 +145,7 @@ export default function TableContent() {
                       const value = row[column.id];
                       return (
                         <td className={`${column.id === 'datam' ? 'w-40 border-l-0' : 'border-l border-gray-300'} p-2 border-b border-gray-300`} key={column.id} align={column.align}>
-                          <p className={`${value === 'Aprovado' ? 'text-purple-700 font-semibold' : ''} ${value === 'Em Andamento' ? 'text-green-500 font-semibold' : ''}`}>{column.format && typeof value === 'number'
+                          <p className={`${value === 'Aprovado' ? 'text-purple-700' : ''} ${value === 'Em Andamento' ? 'text-green-500' : ''} ${value === 'Aguardando Pagamento' ? 'text-zinc-600' : ''} ${value === 'Agendado' ? 'text-blue-500' : ''} ${value === 'Não Aprovado' ? 'text-orange-400' : ''} ${value === 'Re-Prova' ? 'text-red-500' : ''} font-medium`}>{column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}</p>
                         </td>

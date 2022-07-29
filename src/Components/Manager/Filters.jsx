@@ -7,11 +7,13 @@ import {MdFilterAlt} from 'react-icons/md'
 import {AiFillPrinter} from 'react-icons/ai'
 import React, { useState } from 'react'
 
-export default function Filters() {
+export default function Filters({searchEnter}) {
     const [dateRegistration1, setDateRegistration1] = useState('')
     const [dateRegistration2, setDateRegistration2] = useState('')
     const [dateRegistration3, setDateRegistration3] = useState('')
     const [dateRegistration4, setDateRegistration4] = useState('')
+    const [situationCourse, setSituationCourse] = useState(1)
+    const [searchValue, setSearchValue] = useState('')
   return (
     <div className='m-10'>
         <Grid container spacing={2}>
@@ -20,7 +22,7 @@ export default function Filters() {
             </Grid>
 
             <Grid item xs={10} md={4}>
-                <TextField className='w-full' label='Situação do Curso' select>
+                <TextField value={situationCourse} onChange={(e)=> setSituationCourse(e.target.value)} className='w-full' label='Situação do Curso' select>
                     <MenuItem value={1}>
                         Aguardando Pagamento
                     </MenuItem>
@@ -84,7 +86,7 @@ export default function Filters() {
             </Grid>
 
             <Grid item xs={10} md={11}>
-                <TextField label='Pesquisar por Estudante ou Curso' placeholder='Digite o Nome do Estudante ou o Curso (pressione "Enter" para pesquisar)' className='w-full'/>
+                <TextField onKeyUp={(e)=> e.code === 'Enter' ? searchEnter(searchValue) : false} value={searchValue} onChange={(e)=> setSearchValue(e.target.value)} label='Pesquisar por Estudante ou Curso' placeholder='Digite o Nome do Estudante ou o Curso (pressione "Enter" para pesquisar)' className='w-full'/>
             </Grid>
         </Grid>
     </div>
