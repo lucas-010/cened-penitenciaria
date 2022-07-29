@@ -1,12 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
 import { Grid } from '@mui/material';
 
 const columns = [
@@ -105,80 +100,81 @@ export default function TableContent() {
     <Grid>
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <TableContainer sx={{ maxHeight: 740, width: '100%' }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              <TableCell>
+        <table className='w-full'>
+          <thead>
+            <tr>
+              <td className='p-2'>
                 <p className='text-base font-semibold'>Data Matrícula</p>
-              </TableCell>
+              </td>
 
-              <TableCell>
+              <td className='p-2'>
                 <p className="text-base font-semibold">Estudante</p>
-              </TableCell>
+              </td>
 
-              <TableCell>
+              <td className='p-2'>
                 <p className="text-base font-semibold">Curso</p>
-              </TableCell>
+              </td>
 
-              <TableCell>
+              <td className='p-2'>
                 <p className="text-base font-semibold">Início</p>
-              </TableCell>
+              </td>
 
-              <TableCell>
+              <td className='p-2'>
                 <p className="text-base font-semibold">Término</p>
-              </TableCell>
+              </td>
 
-              <TableCell>
+              <td className='p-2'>
                 <p className="text-base font-semibold">Situação</p>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-          <TableRow sx={{backgroundColor: 'rgb(255, 236, 178)'}}>
-              <TableCell>
+              </td>
+            </tr>
+          </thead>
+          <tbody className='w-full'>
+          <tr className='w-full' style={{backgroundColor: 'rgb(255, 236, 178)'}}>
+              <td className='p-2'>
                 
-              </TableCell>
-              <TableCell>
+              </td>
+              <td className='p-2'>
                 <h2 className='font-bold text-[#56645e] text-base'>PENITENCIÁRIA: ARUANA</h2>
-              </TableCell>
+              </td>
 
-              <TableCell className='border-l'>
+              <td className='border-l'>
                 <h2 className='font-bold text-[#56645e] text-base'>UF: RO</h2>
-              </TableCell>
+              </td>
 
 
-              <TableCell>
+              <td className='p-2'>
                 
-              </TableCell>
+              </td>
 
-              <TableCell>
+              <td className='p-2'>
                 
-              </TableCell>
+              </td>
 
-              <TableCell>
+              <td className='p-2'>
                 
-              </TableCell>
-            </TableRow>
+              </td>
+
+            </tr>
             {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <tr className='hover:bg-gray-100' key={row.code}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell className={`${column.id === 'datam' ? 'w-40 border-l-0' : 'border-l border-gray-300'}`} key={column.id} align={column.align}>
+                        <td className={`${column.id === 'datam' ? 'w-40 border-l-0' : 'border-l border-gray-300'} p-2 border-b border-gray-300`} key={column.id} align={column.align}>
                           <p className={`${value === 'Aprovado' ? 'text-purple-700 font-semibold' : ''} ${value === 'Em Andamento' ? 'text-green-500 font-semibold' : ''}`}>{column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}</p>
-                        </TableCell>
+                        </td>
                       );
                     })}
-                  </TableRow>
+                  </tr>
                 );
               })}
-          </TableBody>
-        </Table>
+          </tbody>
+        </table>
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
