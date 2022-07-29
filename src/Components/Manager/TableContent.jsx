@@ -83,29 +83,29 @@ export default function TableContent({searchValueChange}) {
       <TableContainer sx={{ maxHeight: 740, width: '100%' }}>
         <table className='w-full'>
           <thead>
-            <tr>
+            <tr className="text-base font-semibold">
               <td className='p-2'>
-                <p className='text-base font-semibold'>Data Matrícula</p>
+                <p>Data Matrícula</p>
               </td>
 
               <td className='p-2'>
-                <p className="text-base font-semibold">Estudante</p>
+                <p>Estudante</p>
               </td>
 
               <td className='p-2'>
-                <p className="text-base font-semibold">Curso</p>
+                <p>Curso</p>
               </td>
 
               <td className='p-2'>
-                <p className="text-base font-semibold">Início</p>
+                <p>Início</p>
               </td>
 
               <td className='p-2'>
-                <p className="text-base font-semibold">Término</p>
+                <p>Término</p>
               </td>
 
               <td className='p-2'>
-                <p className="text-base font-semibold">Situação</p>
+                <p>Situação</p>
               </td>
             </tr>
           </thead>
