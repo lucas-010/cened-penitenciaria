@@ -23,7 +23,6 @@ export default function Manager() {
     d2 !== '' ? setDate2(new Date(d2).toLocaleDateString('en-us')) : setDate2('')
     d3 !== '' ? setDate3(new Date(d3).toLocaleDateString('en-us')) : setDate3('')
     d4 !== '' ? setDate4(new Date(d4).toLocaleDateString('en-us')) : setDate4('')
-    console.log(date1, date2, date3, date4)
     setSearchValueChange('')
     setStatusCourseChange(statusCourse)
   }
