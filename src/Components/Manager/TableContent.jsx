@@ -44,7 +44,7 @@ const columns = [
     },
   ];
 
-export default function TableContent({searchValueChange}) {
+export default function TableContent({searchValueChange, date1, date2, date3, date4, statusCourse}) {
     const [rows, setRows] = useState([])
     const [idPeni, setIdPeni] = useState(45)
     const [page, setPage] = useState(0);
@@ -73,10 +73,10 @@ export default function TableContent({searchValueChange}) {
     }
   useEffect(()=>{
     setPage(0)
-    axios.get(`${api}/documentos/consultas/matriculas?IdPenitenciaria=${idPeni}&Search=${searchValueChange}&limit=500`).then(response=>{
+    axios.get(`${api}/documentos/consultas/matriculas?IdPenitenciaria=${idPeni}${searchValueChange !== '' ? `&Search=${searchValueChange}` : ''}${statusCourse !== 0 ? `&StatusCurso=${statusCourse}` : ''}${date1 !== '' ? `&PeriodoDataMatricula.Inicio=${date1}` : ''}${date2 ? `&PeriodoDataMatricula.Final=${date2}` : ''}${date3 !== '' ? `&PeriodoDataInicioCurso.Inicio=${date3}` : ''}${date4 !== '' ? `&PeriodoDataInicioCurso.Final=${date4}` : ''}&limit=500`).then(response=>{
       formatStudentsAddRow(response.data)
     })
-  }, [searchValueChange])
+  }, [idPeni, date1, date2, date3, date4, searchValueChange, statusCourse])
   return (
     <Grid>
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
