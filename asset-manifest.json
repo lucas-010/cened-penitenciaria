@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cened-penitenciaria/static/css/main.1e976a9c.css",
-    "main.js": "/cened-penitenciaria/static/js/main.a0e4cf43.js",
+    "main.js": "/cened-penitenciaria/static/js/main.f9cc9a68.js",
     "static/media/Gabriola.ttf": "/cened-penitenciaria/static/media/Gabriola.88ea98efc0d476a13db1.ttf",
     "static/media/ponteJk.jpg": "/cened-penitenciaria/static/media/ponteJk.5ec80884794bb22a687a.jpg",
     "static/media/logoCened.png": "/cened-penitenciaria/static/media/logoCened.c76152731a598cd56fb5.png",
@@ -10,10 +10,10 @@
     "static/media/brasilFlag.jpg": "/cened-penitenciaria/static/media/brasilFlag.54251ad6dc86ef62d8d0.jpg",
     "index.html": "/cened-penitenciaria/index.html",
     "main.1e976a9c.css.map": "/cened-penitenciaria/static/css/main.1e976a9c.css.map",
-    "main.a0e4cf43.js.map": "/cened-penitenciaria/static/js/main.a0e4cf43.js.map"
+    "main.f9cc9a68.js.map": "/cened-penitenciaria/static/js/main.f9cc9a68.js.map"
   },
   "entrypoints": [
     "static/css/main.1e976a9c.css",
-    "static/js/main.a0e4cf43.js"
+    "static/js/main.f9cc9a68.js"
   ]
 }
