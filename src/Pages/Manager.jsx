@@ -18,13 +18,14 @@ export default function Manager() {
     setDate3('')
     setDate4('')
   }
-  const filterData = (d1, d2, d3, d4, statusCourse)=>{
+  const filterData = (d1, d2, d3, d4, statusCourse, searchValue)=>{
     d1 !== '' ? setDate1(new Date(d1).toLocaleDateString('en-us')) : setDate1('')
     d2 !== '' ? setDate2(new Date(d2).toLocaleDateString('en-us')) : setDate2('')
     d3 !== '' ? setDate3(new Date(d3).toLocaleDateString('en-us')) : setDate3('')
     d4 !== '' ? setDate4(new Date(d4).toLocaleDateString('en-us')) : setDate4('')
     setSearchValueChange('')
     setStatusCourseChange(statusCourse)
+    setSearchValueChange(searchValue)
   }
   return (
     <div className=''>

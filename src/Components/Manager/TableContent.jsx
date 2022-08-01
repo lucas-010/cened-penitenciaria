@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Paper from '@mui/material/Paper';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
-import { Grid } from '@mui/material';
 import axios from 'axios';
+import './Print.css'
 
 const api = process.env.REACT_APP_API_KEY
 const columns = [
@@ -78,14 +77,13 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
     })
   }, [idPeni, date1, date2, date3, date4, searchValueChange, statusCourse])
   return (
-    <Grid>
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 740, width: '100%' }}>
+    <div style={{ width: '100%', overflow: 'hidden' }}>
+      <TableContainer sx={{ width: '100%' }}>
         <table className='w-full'>
-          <thead>
-            <tr className="text-base font-semibold">
+          <thead className='print:hidden'>
+            <tr className="text-base print:flex-col print:flex font-semibold">
               <td className='p-2'>
-                <p>Data Matrícula</p>
+                <p>Data da Matrícula</p>
               </td>
 
               <td className='p-2'>
@@ -110,7 +108,12 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
             </tr>
           </thead>
           <tbody className='w-full'>
-          <tr className='w-full' style={{backgroundColor: 'rgb(255, 236, 178)'}}>
+          <tr className='text-center hidden w-full print:block text-2xl font-bold'>
+            <td className='flex justify-center'>
+              {'PENITENCIÁRIA ARUANA'} - {'RO'}
+            </td>
+          </tr>
+          <tr className='w-full print:hidden' style={{backgroundColor: 'rgb(255, 236, 178)'}}>
               <td className='p-2'>
                 
               </td>
@@ -140,14 +143,22 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <tr className='hover:bg-gray-100' key={row.code}>
+                  <tr className='hover:bg-gray-100 print:rounded-lg print:border border-gray-300 print:mt-5 print:flex-col print:flex' key={row.code}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <td className={`${column.id === 'datam' ? 'w-40 border-l-0' : 'border-l border-gray-300'} p-2 border-b border-gray-300`} key={column.id} align={column.align}>
-                          <p className={`${value === 'Aprovado' ? 'text-purple-700' : ''} ${value === 'Em Andamento' ? 'text-green-500' : ''} ${value === 'Aguardando Pagamento' ? 'text-zinc-600' : ''} ${value === 'Agendado' ? 'text-blue-500' : ''} ${value === 'Não Aprovado' ? 'text-orange-400' : ''} ${value === 'Re-Prova' ? 'text-red-500' : ''} font-medium`}>{column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}</p>
+                        <td className={`${column.id === 'datam' ? 'border-l-0' : 'border-l border-gray-300'} p-2 border-b border-gray-300`} key={column.id} align={column.align}>
+                          <p className={`${value === 'Aprovado' ? 'text-purple-700' : ''} ${value === 'Em Andamento' ? 'text-green-500' : ''} ${value === 'Aguardando Pagamento' ? 'text-zinc-600' : ''} ${value === 'Agendado' ? 'text-blue-500' : ''} ${value === 'Não Aprovado' ? 'text-orange-400' : ''} ${value === 'Re-Prova' ? 'text-red-500' : ''} print:flex print:justify-between font-medium`}>
+                            <span className='hidden text-black print:block'>
+                              {column.label}
+                            </span>
+
+                            <span>
+                              {column.format && typeof value === 'number'
+                              ? column.format(value)
+                              : value}
+                            </span>
+                          </p>
                         </td>
                       );
                     })}
@@ -158,6 +169,7 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
         </table>
       </TableContainer>
       <TablePagination
+        className='print:hidden'
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={rows.length}
@@ -166,7 +178,6 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-    </Paper>
-  </Grid>
+    </div>
   )
 }

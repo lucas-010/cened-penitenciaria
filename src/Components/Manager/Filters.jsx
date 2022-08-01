@@ -73,12 +73,12 @@ export default function Filters({searchEnter, filterData}) {
             </Grid>
             </LocalizationProvider>
 
-            <Grid item xs={10}  md={1}>
-                <button onClick={()=> {filterData(date1, date2, date3, date4, statusCourse); setSearchValue('')}} className='text-lg font-bold w-full transition-colors mt-2 hover:bg-[#ff1b67] hover:shadow-xl text-white rounded-md justify-center p-2 shadow-lg flex items-center bg-[#ff4181]'><MdFilterAlt size={20}/>FILTRAR</button>
+            <Grid className='print:hidden' item xs={10}  md={1}>
+                <button onClick={()=> filterData(date1, date2, date3, date4, statusCourse, searchValue)} className='text-lg font-bold w-full transition-colors mt-2 hover:bg-[#ff1b67] hover:shadow-xl text-white rounded-md justify-center p-2 shadow-lg flex items-center bg-[#ff4181]'><MdFilterAlt size={20}/>FILTRAR</button>
             </Grid>
 
-            <Grid item xs={10}  md={2}>
-                <button className='text-lg font-bold w-full transition-colors mt-2 hover:bg-[#ebe6e6] hover:shadow-xl rounded-md justify-center p-2 shadow-lg flex items-center bg-[#f0f0f0]'><AiFillPrinter size={20}/>Imprimir Página Atual</button>
+            <Grid className='print:hidden' item xs={10}  md={2}>
+                <button onClick={()=> window.print()} className='text-lg font-bold w-full transition-colors mt-2 hover:bg-[#ebe6e6] hover:shadow-xl rounded-md justify-center p-2 shadow-lg flex items-center bg-[#f0f0f0]'><AiFillPrinter size={20}/>Imprimir Página Atual</button>
             </Grid>
 
             <Grid item xs={10} md={11}>
