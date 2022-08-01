@@ -45,6 +45,8 @@ const columns = [
 
 export default function TableContent({searchValueChange, date1, date2, date3, date4, statusCourse}) {
     const [rows, setRows] = useState([])
+    const [namePeni, setNamePeni] = useState('')
+    const [ufPeni, setUfPeni] = useState('')
     const [idPeni, setIdPeni] = useState(45)
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -76,6 +78,13 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
       formatStudentsAddRow(response.data)
     })
   }, [idPeni, date1, date2, date3, date4, searchValueChange, statusCourse])
+
+  useEffect(()=>{
+      axios.get(`${api}/penitenciarias/${idPeni}`).then(response=>{
+        setNamePeni(response.data.nome.replace('PENITENCIARIA', 'PENITENCIÁRIA'))
+        setUfPeni(response.data.ufDescricao)
+      })
+  }, [idPeni])
   return (
     <div style={{ width: '100%', overflow: 'hidden' }}>
       <TableContainer sx={{ width: '100%' }}>
@@ -110,7 +119,7 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
           <tbody className='w-full'>
           <tr className='text-center hidden w-full print:block text-2xl font-bold'>
             <td className='flex justify-center'>
-              {'PENITENCIÁRIA ARUANA'} - {'RO'}
+              {namePeni} - {ufPeni}
             </td>
           </tr>
           <tr className='w-full print:hidden' style={{backgroundColor: 'rgb(255, 236, 178)'}}>
@@ -118,11 +127,11 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
                 
               </td>
               <td className='p-2'>
-                <h2 className='font-bold text-[#56645e] text-base'>PENITENCIÁRIA: ARUANA</h2>
+                <h2 className='font-bold text-[#56645e] text-base'>{namePeni}</h2>
               </td>
 
               <td className='border-l'>
-                <h2 className='font-bold text-[#56645e] text-base'>UF: RO</h2>
+                <h2 className='font-bold text-[#56645e] text-base'>UF: {ufPeni}</h2>
               </td>
 
 
