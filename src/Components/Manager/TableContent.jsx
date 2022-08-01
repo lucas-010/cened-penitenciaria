@@ -169,6 +169,7 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
         </table>
       </TableContainer>
       <TablePagination
+        labelRowsPerPage='Itens por Página'
         className='print:hidden'
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
