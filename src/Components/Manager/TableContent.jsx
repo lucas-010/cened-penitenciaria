@@ -156,7 +156,7 @@ export default function TableContent({searchValueChange, date1, date2, date3, da
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <td className={`${column.id === 'datam' ? 'border-l-0' : 'border-l border-gray-300'} p-2 border-b border-gray-300`} key={column.id} align={column.align}>
+                        <td className={`${column.id === 'datam' ? 'border-l-0' : 'border-l print:border-l-0 border-gray-300'} p-2 ${column.label === 'Situação' ? 'border-b print:border-b-0' : 'border-b'} border-gray-300`} key={column.id} align={column.align}>
                           <p className={`${value === 'Aprovado' ? 'text-purple-700' : ''} ${value === 'Em Andamento' ? 'text-green-500' : ''} ${value === 'Aguardando Pagamento' ? 'text-zinc-600' : ''} ${value === 'Agendado' ? 'text-blue-500' : ''} ${value === 'Não Aprovado' ? 'text-orange-400' : ''} ${value === 'Re-Prova' ? 'text-red-500' : ''} print:flex print:justify-between font-medium`}>
                             <span className='hidden text-black print:block'>
                               {column.label}
